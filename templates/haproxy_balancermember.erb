@@ -2,8 +2,8 @@
   <% if @ports -%>
   <%- Array(@ports).each do |port| -%>
   server <%= host %> <%= ipaddress %>:<%= port %><%= if @define_cookies then " cookie " + host end %> <%= Array(@options).sort.join(" ") %>
+  <%- end -%>
   <% else -%>
   server <%= host %> <%= ipaddress %><%= if @define_cookies then " cookie " + host end %> <%= Array(@options).sort.join(" ") %>
-  <%- end -%>
   <%- end -%>
 <% end -%>
