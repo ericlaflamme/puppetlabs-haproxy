@@ -107,6 +107,16 @@ describe 'haproxy::balancermember' do
         :options           => ['check']
       }
     end
+    context 'with multiple servers and no port' do
+    let(:params) do
+      {
+        :name              => 'tyler',
+        :listening_service => 'croy',
+        :server_names      => ['server01', 'server02'],
+        :ipaddresses       => ['192.168.56.200', '192.168.56.201'],
+        :options           => ['check']
+      }
+    end
 
     it { should contain_concat__fragment('croy_balancermember_tyler').with(
       'order'   => '20-croy-01-tyler',
